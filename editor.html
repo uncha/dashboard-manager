@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VPP Editor</title>
+	<!-- library -->
+	<link rel="stylesheet" href="./src/libs/fontawesome/css/all.css">
+  <link rel="stylesheet" type="text/css" href="./src/libs/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./src/libs/bootstrap/bootstrap-submenu.min.css">
+	<link rel="stylesheet" type="text/css" href="./src/libs/jointjs/joint.min.css">
+	<link rel="stylesheet" type="text/css" href="./src/libs/jointjs/rappid.min.css">
+	<!-- css -->
+  <link rel="stylesheet" type="text/css" href="./src/css/editor.css">
+</head>
+<body>
+	<!-- html -->
+	<div id="app">
+		<div id="app-header">
+			<div id="menubar">
+				<nav class="navbar navbar-default">
+				  <div class="navbar-header">
+				    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				      <span class="sr-only">Toggle navigation</span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				    </button>
+
+				    <!-- <a class="navbar-brand">SVG Editor</a> -->
+				  </div>
+
+				  <div class="collapse navbar-collapse">
+				    <ul class="nav navbar-nav">
+				      <li class="dropdown">
+				        <a tabindex="0" data-toggle="dropdown">File</a>
+				        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+				        <ul class="dropdown-menu" role="menu">
+				          <li>
+				            <a tabindex="0" id="menubar-btn-save">Save</a>
+				            <a tabindex="0" id="menubar-btn-load">Load</a>
+				          </li>
+				          <li class="divider"></li>
+				          <li class="dropdown-submenu">
+				            <a tabindex="0" data-toggle="dropdown">Export as</a>
+				            <ul class="dropdown-menu">
+				              <li><a tabindex="0" id="menubar-btn-export-svg">Export SVG</a></li>
+				              <li><a tabindex="0" id="menubar-btn-export-png">Export PNG</a></li>
+				            </ul>
+				          </li>
+				          <li class="divider"></li>
+				          <li><a tabindex="0" id="menubar-btn-print">Print</a></li>
+				          <li class="divider"></li>
+				          <li><a tabindex="0" id="menubar-btn-close">Close</a></li>
+				        </ul>
+				      </li>
+				      <li class="dropdown">
+				        <a tabindex="0" data-toggle="dropdown">Help</a>
+
+				        <!-- role="menu": fix moved by arrows (Bootstrap dropdown) -->
+				        <ul class="dropdown-menu" role="menu">
+				          <li>
+				            <a tabindex="0" data-toggle="dropdown" id="menubar-btn-about">About</a>
+				          </li>
+				        </ul>
+				      </li>
+				    </ul>
+
+				    <!-- <ul class="nav navbar-nav navbar-right">
+				      <li class="dropdown">
+				        <a tabindex="0" data-toggle="dropdown">Dropdown 3<span class="caret"></span></a>
+				        <ul class="dropdown-menu" role="menu">
+				          <li><a tabindex="0">Action</a></li>
+				          <li><a tabindex="0">Another action</a></li>
+				          <li><a tabindex="0">Something else here</a></li>
+				          <li class="divider"></li>
+				          <li><a tabindex="0">Separated link</a></li>
+				        </ul>
+				      </li>
+				    </ul> -->
+				  </div>
+				</nav>
+			</div>
+			<div id="toolbar"></div>
+		</div>
+		<div id="app-body">
+			<div id="stencil"></div>
+			<div class="center-area">
+				<div id="paper"></div>
+				<ul class="nav nav-tabs">
+			    <li class="active">
+			    	<a data-toggle="tab" href="#home">
+			    		<button class="btn btn-close"><i class="fas fa-times"></i></button>
+			    		<span class="page-name">page-1</span>
+			    	</a>
+			    </li>
+			    <a class="add-page" href="#home" id="btn-add-page"><i class="fas fa-plus"></i></a>
+			  </ul>
+			</div>
+			<div id="inspector"></div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" style="display:none" id="page-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <form>
+					  <div class="form-group row">
+					    <label for="inputRename" class="col-sm-2 col-form-label" style="line-height: 34px">Rename</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="inputRename" placeholder="Rename">
+					    </div>
+					  </div>
+					  <div class="form-check">
+				      <input class="form-check-input" type="checkbox" id="checkEnabled">
+				      <label class="form-check-label" for="checkEnabled">
+				        Enabled
+				      </label>
+				    </div>
+					</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" id="btn-save-changes" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- library -->
+	<script src="./src/libs/jquery/jquery.js"></script>
+	<script src="./src/libs/bootstrap/bootstrap.min.js" defer></script>
+  <script src="./src/libs/lodash/lodash.js"></script>
+  <script src="./src/libs/backbone/backbone.js"></script>
+  <script src="./src/libs/jointjs/joint.min.js"></script>
+  <script src="./src/libs/jointjs/rappid.min.js"></script>
+  <script src="./src/libs/bootstrap/bootstrap-submenu.min.js"></script>
+  <!-- src -->
+  <script src="./src/js/config/stencil.js"></script>
+  <script src="./src/js/config/inspector.js"></script>
+  <script src="./src/js/config/toolbar.js"></script>
+  <script src="./src/js/models/link.js"></script>
+  <script src="./src/js/models/shape.js"></script>
+  <script src="./src/js/models/data-group.js"></script>
+  <script src="./src/js/views/editor.js"></script>
+  
+  <script type="text/javascript">
+  	$(window).resize(function(){
+  		$('#app-body').css('height', $(window).height() - 70);
+  		$('#stencil').css('height', $(window).height() - 70);
+  		$('#inspector').css('height', $(window).height() - 70);
+  	});
+  	$(window).trigger('resize');
+
+  	'use strict';
+
+		$(function() {
+		  // Dropdown fix
+		  $('.dropdown > a[tabindex]').keydown(function(event) {
+		    // 13: Return
+
+		    if (event.keyCode == 13) {
+		      $(this).dropdown('toggle');
+		    }
+		  });
+
+		  $('.dropdown-submenu > a').submenupicker();
+		});
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

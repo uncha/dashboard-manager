@@ -1,0 +1,58 @@
+label {margin-bottom:0; font-weight:normal;}
+output {padding:0; font-size: 12px; line-height: auto; color:initial;}
+
+#app-body {position: relative; height: 1000px}
+#app-body .center-area {position: absolute; left: 300px; right: 300px; top:0; height: 100%; overflow: hidden; box-sizing: border-box;}
+#app-body .center-area #paper{width:100%; height: calc(100% - 32px)}
+#app-body #stencil {position: absolute; width: 300px; height: 1000px;}
+#app-body #inspector {position: absolute; width: 300px; height: 1000px; right: 0}
+
+#inspector {min-height: 500px; border-left:1px solid #d3d3d3; margin-left:-1px;}
+
+.joint-stencil .joint-element[data-type="standard.Image"] text, .joint-stencil .joint-element[data-type="standard.Cylinder"] text, .joint-stencil .joint-element[data-type="devs.Atomic"] .inPorts text, .joint-stencil .joint-element[data-type="devs.Atomic"] .outPorts text, .joint-stencil .joint-element[data-type="pn.Transition"] text, .joint-stencil .joint-element .joint-port text {display: none;}
+.joint-inspector.joint-theme-default {margin-left: -1px !important;}
+.joint-toolbar {padding:10px !important;}
+
+.navbar{min-height: 0}
+.navbar-default {margin-bottom: 0}
+.navbar-brand {padding:5px 15px; height: auto;}
+.navbar-nav>li>a {padding-top:5px; padding-bottom: 5px;}
+.navbar a{cursor: pointer;}
+
+.modal{display: block; overflow: auto;}
+
+.joint-dialog.joint-lightbox.joint-theme-default .btn-close{top:0; right: -40px}
+
+.joint-toolbar{padding:3px 3px 3px 27px !important;}
+.joint-toolbar-group{border-right: 1px solid #CCC !important; padding:0 5px;}
+.joint-toolbar-group:last-child{border-right: 0 !important}
+.joint-toolbar button{border:0 !important;}
+.joint-toolbar button:hover{outline:1px solid #CCC !important; background: none !important}
+.joint-toolbar button[data-type="undo"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -921px}
+.joint-toolbar button[data-type="redo"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -645px}
+.joint-toolbar button[data-name="to-front"]{text-indent: -99999px; font-size: 0}
+.joint-toolbar button[data-name="to-back"]{text-indent: -99999px; font-size: 0}
+.joint-toolbar button[data-name="to-front"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -4061px}
+.joint-toolbar button[data-name="to-back"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -4014px}
+.joint-toolbar button[data-type="zoomOut"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -1013px}
+.joint-toolbar button[data-type="zoomIn"]:after{content:'' !important; background: url(../assets/icons.png); width:20px; height:20px; background-position: 0 -967px}
+
+.nav-tabs{background:#EEE; border-top:1px solid #d3d3d3;}
+.nav-tabs > li{margin-left:-3px; background:#EEE; margin-top:-1px;}
+.nav-tabs > li a{padding:5px; width:150px; border-radius: 0; border:1px solid #d3d3d3;}
+.nav-tabs > li a:hover{border:1px solid #d3d3d3;}
+.nav-tabs > li .btn{margin:0 12px; padding:0 !important; background: transparent;}
+.nav-tabs > li .btn > .fa-times:before{font-size: 10px}
+#btn-add-page{line-height: 34px; padding:8px; font-size:12px; margin-left:-3px; border:1px solid #d3d3d3; border-top:0;}
+
+
+
+
+
+
+
+
+
+
+
+

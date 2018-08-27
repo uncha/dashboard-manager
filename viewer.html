@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VPP Viewer</title>
+  <!-- library -->
+  <link rel="stylesheet" type="text/css" href="./src/libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./src/libs/jointjs/joint.min.css">
+	<link rel="stylesheet" type="text/css" href="./src/libs/jointjs/rappid.min.css">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="./src/css/viewer.css">
+</head>
+<body>
+	<!-- html -->
+	<div id="app">
+    <div id="app-header">
+      <div class="page-menu">
+        <ul></ul>
+      </div>
+    </div>
+		<div id="app-body">
+			<div id="paper"></div>
+		</div>
+	</div>
+  
+  <!-- Modal -->
+  <div class="modal fade" style="display:none" id="chart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          Chart
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="btn-save-changes" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<!-- library -->
+	<script src="./src/libs/jquery/jquery.js"></script>
+  <script src="./src/libs/bootstrap/bootstrap.min.js" defer></script>
+  <script src="./src/libs/lodash/lodash.js"></script>
+  <script src="./src/libs/backbone/backbone.js"></script>
+  <script src="./src/libs/jointjs/joint.min.js"></script>
+  <script src="./src/libs/jointjs/rappid.min.js"></script>
+  <!-- src -->
+  <script src="./src/js/config/stencil.js"></script>
+  <script src="./src/js/config/inspector.js"></script>
+  <script src="./src/js/config/toolbar.js"></script>
+  <script src="./src/js/models/shape.js"></script>
+  <script src="./src/js/models/link.js"></script>
+  <script src="./src/js/views/viewer.js"></script>
+
+  <script type="text/javascript">
+  	$(window).resize(function(){
+  		$('#app-body').css('height', $(window).height())
+  	});
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
