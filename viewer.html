@@ -21,17 +21,16 @@
 			<div id="paper"></div>
 		</div>
 	</div>
-  
+
   <!-- Modal -->
   <div class="modal fade" style="display:none" id="chart-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          Chart
+          <div id="piechart" style="height: 400px"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" id="btn-save-changes" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -44,6 +43,12 @@
   <script src="./src/libs/backbone/backbone.js"></script>
   <script src="./src/libs/jointjs/joint.min.js"></script>
   <script src="./src/libs/jointjs/rappid.min.js"></script>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
   <!-- src -->
   <script src="./src/js/config/stencil.js"></script>
   <script src="./src/js/config/inspector.js"></script>

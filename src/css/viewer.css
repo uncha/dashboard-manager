@@ -2,13 +2,13 @@
 li{list-style: none;}
 
 #app-header {}
-#app-header .page-menu{position: fixed; top:20px; left:0; right: 0; z-index: 9999}
+#app-header .page-menu{position: fixed; top:20px; left:0; right: 0; z-index: 99}
 #app-header .page-menu > ul{width:330px; margin:0 auto;}
 #app-header .page-menu > ul > li{display: inline-block; width:90px; height: 110px; margin:0 5px; padding:5px; text-align: center; border:2px solid #DDD; background:#FFF;}
 
 #app-body {position: relative; height: 1000px}
 
-
+.modal{z-index: 9999}
 
 
 
